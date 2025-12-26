@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 from models import Session, Lead
 from ai import classify_lead, generate_reply
