@@ -1,0 +1,16 @@
+<table border="1">
+<tr>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Product</th>
+  <th>Category</th>
+</tr>
+{% for lead in leads %}
+<tr>
+  <td>{{ lead.name }}</td>
+  <td>{{ lead.email }}</td>
+  <td>{{ lead.product }}</td>
+  <td>{{ lead.category }}</td>
+</tr>
+{% endfor %}
+</table>
