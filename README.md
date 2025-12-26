@@ -49,3 +49,41 @@ The system is designed using **free and open-source tools**, with a focus on rel
 ---
 
 ## Project Structure
++-------------------+
+| Website User |
+| (Inquiry Form) |
++---------+---------+
+|
+| HTTP POST /submit
+v
++---------+---------+
+| Flask Backend |
+| (app.py) |
++----+---------+----+
+| |
+| |
+| v
+| +----------------------+
+| | Hugging Face AI API |
+| | (Free Inference) |
+| | - Lead Classification|
+| +----------------------+
+|
+v
++-------------------+
+| SQLite Database |
+| (leads.db) |
++---------+---------+
+|
+|
+v
++-------------------+
+| Admin Dashboard |
+| (/admin) |
++-------------------+
+
++-------------------+
+| Background Worker |
+| (APScheduler) |
+| - Follow-ups |
++-------------------+
