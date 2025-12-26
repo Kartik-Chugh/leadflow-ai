@@ -49,41 +49,31 @@ The system is designed using **free and open-source tools**, with a focus on rel
 ---
 
 ## Project Structure
-+-------------------+
-| Website User |
-| (Inquiry Form) |
-+---------+---------+
-|
-| HTTP POST /submit
-v
-+---------+---------+
-| Flask Backend |
-| (app.py) |
-+----+---------+----+
-| |
-| |
-| v
-| +----------------------+
-| | Hugging Face AI API |
-| | (Free Inference) |
-| | - Lead Classification|
-| +----------------------+
-|
-v
-+-------------------+
-| SQLite Database |
-| (leads.db) |
-+---------+---------+
-|
-|
-v
-+-------------------+
-| Admin Dashboard |
-| (/admin) |
-+-------------------+
+## System Architecture (High Level)
 
-+-------------------+
-| Background Worker |
-| (APScheduler) |
-| - Follow-ups |
-+-------------------+
+1. User submits inquiry via website form  
+2. Flask backend receives and processes the request  
+3. AI service classifies the inquiry (Hot / Warm / Cold)  
+4. Lead data is stored in the SQLite database  
+5. Admin dashboard displays leads  
+6. Background scheduler handles follow-up reminders  
+
+### Architecture Diagram
+
+[ Website User ]
+|
+| POST /submit
+v
+[ Flask Backend (app.py) ]
+|
+|---> [ Hugging Face AI API ]
+| (Lead Classification)
+|
+|---> [ SQLite Database ]
+|
+v
+[ Admin Dashboard (/admin) ]
+
+[ Background Scheduler ]
+|
++---> Follow-up Reminders
