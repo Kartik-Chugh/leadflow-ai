@@ -48,7 +48,6 @@ The system is designed using **free and open-source tools**, with a focus on rel
 
 ---
 
-## Project Structure
 ## System Architecture (High Level)
 
 1. User submits inquiry via website form  
